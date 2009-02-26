@@ -39,9 +39,6 @@ namespace RockPaperScissorsPro.Specs
   public class when_dynamite_fights_scissors
     : WinDeterminerSpecs
   {
-    Establish context = () =>
-      player1.DynamiteRemaining = 1;
-
     Because of = () =>
       winner = winDeterminer.DetermineWinner(new PlayerMove(player1, dynamite), new PlayerMove(player2, scissors));
 
@@ -64,7 +61,7 @@ namespace RockPaperScissorsPro.Specs
   {
     Establish context = () =>
     {
-      player1.DynamiteRemaining = 0;
+      player1.UseDynamite();
     };
 
     Because of = () =>
@@ -79,8 +76,7 @@ namespace RockPaperScissorsPro.Specs
   {
     Establish context = () =>
     {
-      player1.DynamiteRemaining = 0;
-      player2.DynamiteRemaining = 1;
+      player1.UseDynamite();
     };
 
     Because of = () =>
@@ -104,8 +100,14 @@ namespace RockPaperScissorsPro.Specs
 
     Establish context = () =>
     {
+      var gameRules = new GameRules();
+      gameRules.StartingDynamite = 1;
       player1 = new Player();
       player2 = new Player();
+
+      player1.Reset(gameRules);
+      player2.Reset(gameRules);
+
       rock = new RockMove();
       paper = new PaperMove();
       scissors = new ScissorsMove();

@@ -1,4 +1,4 @@
-namespace RockPaperScissorsPro.Specs
+namespace RockPaperScissorsPro
 {
   public class ScissorsMove : Move
   {
