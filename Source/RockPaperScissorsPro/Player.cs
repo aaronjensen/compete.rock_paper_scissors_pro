@@ -7,6 +7,11 @@ namespace RockPaperScissorsPro
     int Points { get; }
   }
 
+  public interface IBot
+  {
+    Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules);
+  }
+
   public class Player : IPlayer
   {
     public int DynamiteRemaining
