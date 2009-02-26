@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -45,8 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DynamiteMove.cs" />
+    <Compile Include="IllegalMove.cs" />
+    <Compile Include="Move.cs" />
+    <Compile Include="PaperMove.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RockMove.cs" />
+    <Compile Include="ScissorsMove.cs" />
+    <Compile Include="WaterMove.cs" />
+    <Compile Include="WinDeterminer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
