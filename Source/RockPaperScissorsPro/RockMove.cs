@@ -1,6 +1,6 @@
 namespace RockPaperScissorsPro
 {
-  public class RockMove : Move
+  internal class RockMove : Move
   {
     protected override bool CanBeatLegalMove(Move move)
     {

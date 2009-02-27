@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Compete.Model.Game;
+using Compete.Bot;
 
 namespace RockPaperScissorsPro.AlwaysThrows
 {
@@ -8,22 +8,7 @@ namespace RockPaperScissorsPro.AlwaysThrows
   {
     public IBot CreateBot()
     {
-      return new BotWrapper(new AlwaysThrowsBot());
-    }
-  }
-
-  public class BotWrapper : IBot, IRockPaperScissorsBot
-  {
-    readonly AlwaysThrowsBot _bot;
-
-    public BotWrapper(AlwaysThrowsBot bot)
-    {
-      _bot = bot;
-    }
-
-    public Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules)
-    {
-      return _bot.MakeMove(you, opponent, rules);
+      return new AlwaysThrowsBot();
     }
   }
 
@@ -35,9 +20,9 @@ namespace RockPaperScissorsPro.AlwaysThrows
     {
       if (_random.NextDouble() > 0.5)
       {
-        return new PaperMove();
+        return Move.Paper;
       }
-      return new RockMove();
+      return Move.Rock;
     }
   }
 }

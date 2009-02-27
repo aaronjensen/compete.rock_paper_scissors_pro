@@ -11,8 +11,8 @@ namespace RockPaperScissorsPro.Specs
   {
     Establish context = () =>
     {
-      player1 = new PlayerThatAlwaysThrows(new RockMove());
-      player2 = new PlayerThatAlwaysThrows(new PaperMove());
+      player1 = new PlayerThatAlwaysThrows(Move.Rock);
+      player2 = new PlayerThatAlwaysThrows(Move.Paper);
     };
 
     Because of = () =>
@@ -33,8 +33,8 @@ namespace RockPaperScissorsPro.Specs
   {
     Establish context = () =>
     {
-      player1 = new PlayerThatAlwaysThrows(new RockMove());
-      player2 = new PlayerThatAlwaysThrows(new RockMove());
+      player1 = new PlayerThatAlwaysThrows(Move.Rock);
+      player2 = new PlayerThatAlwaysThrows(Move.Rock);
     };
 
     Because of = () =>

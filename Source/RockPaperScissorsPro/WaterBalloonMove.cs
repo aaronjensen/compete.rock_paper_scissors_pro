@@ -1,6 +1,6 @@
 namespace RockPaperScissorsPro
 {
-  public class WaterMove : Move
+  public class WaterBalloonMove : Move
   {
     protected override bool CanBeatLegalMove(Move move)
     {

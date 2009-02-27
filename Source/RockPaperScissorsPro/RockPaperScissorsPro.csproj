@@ -58,8 +58,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RockMove.cs" />
     <Compile Include="ScissorsMove.cs" />
-    <Compile Include="WaterMove.cs" />
+    <Compile Include="WaterBalloonMove.cs" />
     <Compile Include="WinDeterminer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\compete\Source\Compete.Bot\Compete.Bot.csproj">
+      <Project>{DFF95378-F0D3-4B1B-AE0D-78388420C235}</Project>
+      <Name>Compete.Bot</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
