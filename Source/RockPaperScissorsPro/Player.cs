@@ -1,3 +1,7 @@
+using System;
+using System.Diagnostics;
+using System.Threading;
+
 namespace RockPaperScissorsPro
 {
   public interface IPlayer
@@ -38,7 +42,9 @@ namespace RockPaperScissorsPro
 
     public virtual PlayerMove MakeMove(IPlayer opponent, GameRules rules)
     {
-      return new PlayerMove(this, _bot.MakeMove(this, opponent, rules));
+      DecisionClock<Move> clock = new DecisionClock<Move>(new TimeoutMove());
+      Move move = clock.Run(() => _bot.MakeMove(this, opponent, rules));
+      return new PlayerMove(this, move);
     }
 
     public void Reset(GameRules rules)
@@ -55,6 +61,38 @@ namespace RockPaperScissorsPro
     public void UseDynamite()
     {
       DynamiteRemaining--;
+    }
+  }
+
+  public class DecisionClock<O>
+  {
+    readonly ManualResetEvent _stopWaiting = new ManualResetEvent(false);
+    readonly O _timeoutValue;
+    O _value;
+
+    public DecisionClock(O timeoutValue)
+    {
+      _timeoutValue = timeoutValue;
+      _value = timeoutValue;
+    }
+
+    public O Run(Func<O> func)
+    {
+      Thread thread = new Thread(Run);
+      thread.Start(func);
+      _stopWaiting.WaitOne(TimeSpan.FromMilliseconds(10));
+      if (thread.IsAlive)
+      {
+        thread.Abort();
+        return _timeoutValue;
+      }
+      return _value;
+    }
+
+    private void Run(object parameter)
+    {
+      _value = ((Func<O>)parameter)();
+      _stopWaiting.Set();
     }
   }
 }
