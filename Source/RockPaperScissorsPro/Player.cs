@@ -9,6 +9,8 @@ namespace RockPaperScissorsPro
     int DynamiteRemaining { get; }
     bool HasDynamite { get; }
     int Points { get; }
+    int NumberOfDecisions { get; }
+    TimeSpan TotalTimeDeciding { get; }
   }
 
   public class Player : IPlayer
@@ -23,6 +25,16 @@ namespace RockPaperScissorsPro
     public Player(IRockPaperScissorsBot bot)
     {
       _bot = bot;
+    }
+
+    public TimeSpan TotalTimeDeciding
+    {
+      get; private set;
+    }
+
+    public int NumberOfDecisions
+    {
+      get; private set;
     }
 
     public int DynamiteRemaining
@@ -44,6 +56,8 @@ namespace RockPaperScissorsPro
     {
       DecisionClock<Move> clock = new DecisionClock<Move>(new TimeoutMove());
       Move move = clock.Run(() => _bot.MakeMove(this, opponent, rules));
+      TotalTimeDeciding += clock.TimeToDecide;
+      NumberOfDecisions++;
       return new PlayerMove(this, move);
     }
 
@@ -68,7 +82,13 @@ namespace RockPaperScissorsPro
   {
     readonly ManualResetEvent _stopWaiting = new ManualResetEvent(false);
     readonly O _timeoutValue;
+    readonly Stopwatch _sw = new Stopwatch();
     O _value;
+
+    public TimeSpan TimeToDecide
+    {
+      get { return _sw.Elapsed; }
+    }
 
     public DecisionClock(O timeoutValue)
     {
@@ -79,8 +99,10 @@ namespace RockPaperScissorsPro
     public O Run(Func<O> func)
     {
       Thread thread = new Thread(Run);
+      _sw.Start();
       thread.Start(func);
-      _stopWaiting.WaitOne(TimeSpan.FromMilliseconds(10));
+      _stopWaiting.WaitOne(TimeSpan.FromMilliseconds(5));
+      _sw.Stop();
       if (thread.IsAlive)
       {
         thread.Abort();

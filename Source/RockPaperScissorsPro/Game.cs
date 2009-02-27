@@ -43,6 +43,9 @@ namespace RockPaperScissorsPro
         gameNumber++;
       }
 
+      System.Diagnostics.Debug.WriteLine(player1.Bot + ": " + player1.TotalTimeDeciding + " " + player1.NumberOfDecisions + " " + (player1.TotalTimeDeciding.TotalMilliseconds/(double)player1.NumberOfDecisions));
+      System.Diagnostics.Debug.WriteLine(player1.Bot + ": " + player2.TotalTimeDeciding + " " + player2.NumberOfDecisions + " " + (player2.TotalTimeDeciding.TotalMilliseconds/(double)player2.NumberOfDecisions));
+
       return new GameResults(player1, player2);
     }
   }
