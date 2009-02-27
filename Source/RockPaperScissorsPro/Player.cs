@@ -1,6 +1,6 @@
 namespace RockPaperScissorsPro
 {
-  public interface IPlayer : Compete.Model.Game.IBot
+  public interface IPlayer
   {
     int DynamiteRemaining { get; }
     bool HasDynamite { get; }

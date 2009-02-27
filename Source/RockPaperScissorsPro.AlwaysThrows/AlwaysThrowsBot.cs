@@ -8,7 +8,22 @@ namespace RockPaperScissorsPro.AlwaysThrows
   {
     public IBot CreateBot()
     {
-      return new AlwaysThrowsBot();
+      return new BotWrapper(new AlwaysThrowsBot());
+    }
+  }
+
+  public class BotWrapper : IBot, IRockPaperScissorsBot
+  {
+    readonly AlwaysThrowsBot _bot;
+
+    public BotWrapper(AlwaysThrowsBot bot)
+    {
+      _bot = bot;
+    }
+
+    public Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules)
+    {
+      return _bot.MakeMove(you, opponent, rules);
     }
   }
 

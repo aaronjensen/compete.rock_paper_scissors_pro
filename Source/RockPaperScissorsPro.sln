@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissorsPro", "Roc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissorsPro.Specs", "RockPaperScissorsPro.Specs\RockPaperScissorsPro.Specs.csproj", "{500A1C5F-353C-4F79-B276-4B9515BC334C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissorsPro.Wrapper", "RockPaperScissorsPro.Wrapper\RockPaperScissorsPro.Wrapper.csproj", "{5E4C63FB-EBCA-466E-BCBE-87CAA965871E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{500A1C5F-353C-4F79-B276-4B9515BC334C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{500A1C5F-353C-4F79-B276-4B9515BC334C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{500A1C5F-353C-4F79-B276-4B9515BC334C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4C63FB-EBCA-466E-BCBE-87CAA965871E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4C63FB-EBCA-466E-BCBE-87CAA965871E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4C63FB-EBCA-466E-BCBE-87CAA965871E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4C63FB-EBCA-466E-BCBE-87CAA965871E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
