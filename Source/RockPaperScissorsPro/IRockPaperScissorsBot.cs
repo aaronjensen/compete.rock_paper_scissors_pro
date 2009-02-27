@@ -1,6 +1,6 @@
 namespace RockPaperScissorsPro
 {
-  public interface IBot
+  public interface IRockPaperScissorsBot : Compete.Model.Game.IBot
   {
     Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules);
   }

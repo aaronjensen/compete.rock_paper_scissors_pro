@@ -50,7 +50,7 @@
     <Compile Include="DynamiteMove.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameRules.cs" />
-    <Compile Include="IBot.cs" />
+    <Compile Include="IRockPaperScissorsBot.cs" />
     <Compile Include="IllegalMove.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="PaperMove.cs" />

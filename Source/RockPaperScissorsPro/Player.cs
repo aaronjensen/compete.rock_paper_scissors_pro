@@ -1,6 +1,6 @@
 namespace RockPaperScissorsPro
 {
-  public interface IPlayer
+  public interface IPlayer : Compete.Model.Game.IBot
   {
     int DynamiteRemaining { get; }
     bool HasDynamite { get; }
@@ -9,9 +9,14 @@ namespace RockPaperScissorsPro
 
   public class Player : IPlayer
   {
-    readonly IBot _bot;
+    readonly IRockPaperScissorsBot _bot;
 
-    public Player(IBot bot)
+    public IRockPaperScissorsBot Bot
+    {
+      get { return _bot; }
+    }
+
+    public Player(IRockPaperScissorsBot bot)
     {
       _bot = bot;
     }

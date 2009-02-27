@@ -4,15 +4,15 @@ using Compete.Model.Game;
 
 namespace RockPaperScissorsPro.AlwaysThrows
 {
-  public class AlwaysThrowsPlayerFactory : IPlayerFactory
+  public class AlwaysThrowsPlayerFactory : IBotFactory
   {
-    public Compete.Model.Game.IPlayer CreatePlayer()
+    public IBot CreateBot()
     {
-      return new CompetePlayerWrapper(new AlwaysThrowsPlayer());
+      return new AlwaysThrowsBot();
     }
   }
 
-  public class AlwaysThrowsPlayer : IBot
+  public class AlwaysThrowsBot : IRockPaperScissorsBot
   {
     readonly Random _random = new Random();
 

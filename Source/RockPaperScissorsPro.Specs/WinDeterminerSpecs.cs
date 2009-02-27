@@ -117,7 +117,7 @@ namespace RockPaperScissorsPro.Specs
     };
   }
 
-  public class DumbBot : IBot
+  public class DumbBot : IRockPaperScissorsBot
   {
     private readonly Move _move;
 

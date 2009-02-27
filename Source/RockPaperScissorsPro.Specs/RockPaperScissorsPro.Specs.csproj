@@ -60,6 +60,10 @@
     <Compile Include="WinDeterminerSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Compete\Source\Compete.Model\Compete.Model.csproj">
+      <Project>{7614EA4E-29EB-4F13-A50D-2794244FE934}</Project>
+      <Name>Compete.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RockPaperScissorsPro\RockPaperScissorsPro.csproj">
       <Project>{146770EE-181F-4C9F-951A-FB7F608B0505}</Project>
       <Name>RockPaperScissorsPro</Name>
