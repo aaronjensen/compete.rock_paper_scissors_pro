@@ -17,6 +17,10 @@ namespace RockPaperScissorsPro
       typeof(WaterBalloonMove) 
     };
 
+    internal Move()
+    {
+    }
+
     public bool CanBeat(Move move)
     {
       if (!ValidMoves.Contains(GetType()))

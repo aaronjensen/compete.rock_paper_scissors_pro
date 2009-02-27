@@ -11,6 +11,7 @@ namespace RockPaperScissorsPro
     int Points { get; }
     int NumberOfDecisions { get; }
     TimeSpan TotalTimeDeciding { get; }
+    Move LastMove { get; }
   }
 
   public class Player : IPlayer
@@ -52,7 +53,12 @@ namespace RockPaperScissorsPro
       get; private set;
     }
 
-    public virtual PlayerMove MakeMove(IPlayer opponent, GameRules rules)
+    public Move LastMove
+    {
+      get; private set;
+    }
+
+    public virtual PlayerMove GetMoveToMake(IPlayer opponent, GameRules rules)
     {
       DecisionClock<Move> clock = new DecisionClock<Move>(new TimeoutMove());
       Move move = clock.Run(() => _bot.MakeMove(this, opponent, rules));
@@ -75,6 +81,11 @@ namespace RockPaperScissorsPro
     public void UseDynamite()
     {
       DynamiteRemaining--;
+    }
+
+    public void SetLastMove(PlayerMove move)
+    {
+      LastMove = move.Move;
     }
   }
 
