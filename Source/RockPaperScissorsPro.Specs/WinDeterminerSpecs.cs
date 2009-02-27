@@ -102,8 +102,8 @@ namespace RockPaperScissorsPro.Specs
     {
       var gameRules = new GameRules();
       gameRules.StartingDynamite = 1;
-      player1 = new Player();
-      player2 = new Player();
+      player1 = new Player(new DumbBot(new RockMove()));
+      player2 = new Player(new DumbBot(new RockMove()));
 
       player1.Reset(gameRules);
       player2.Reset(gameRules);
@@ -115,5 +115,20 @@ namespace RockPaperScissorsPro.Specs
       water = new WaterMove();
       winDeterminer = new WinDeterminer();
     };
+  }
+
+  public class DumbBot : IBot
+  {
+    private readonly Move _move;
+
+    public DumbBot(Move move)
+    {
+      _move = move;
+    }
+
+    public Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules)
+    {
+      return _move;
+    }
   }
 }

@@ -7,13 +7,15 @@ namespace RockPaperScissorsPro
     int Points { get; }
   }
 
-  public interface IBot
-  {
-    Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules);
-  }
-
   public class Player : IPlayer
   {
+    readonly IBot _bot;
+
+    public Player(IBot bot)
+    {
+      _bot = bot;
+    }
+
     public int DynamiteRemaining
     {
       get; private set;
@@ -29,9 +31,9 @@ namespace RockPaperScissorsPro
       get; private set;
     }
 
-    public virtual PlayerMove MakeMove()
+    public virtual PlayerMove MakeMove(IPlayer opponent, GameRules rules)
     {
-      throw new System.NotImplementedException();
+      return new PlayerMove(this, _bot.MakeMove(this, opponent, rules));
     }
 
     public void Reset(GameRules rules)
