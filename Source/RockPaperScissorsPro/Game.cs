@@ -5,6 +5,14 @@ using System.Text;
 
 namespace RockPaperScissorsPro
 {
+  public class GameLog
+  {
+    public GameLog(Player player1, Player player2)
+    {
+      
+    }
+  }
+
   public class Game
   {
     readonly GameRules _rules;

@@ -9,17 +9,17 @@ namespace RockPaperScissorsPro
   {
     public GameResult Play(BotPlayer player1, BotPlayer player2)
     {
-      IRockPaperScissorsBot wrappedPlayer1 = player1.Bot as IRockPaperScissorsBot;
-      IRockPaperScissorsBot wrappedPlayer2 = player2.Bot as IRockPaperScissorsBot;
+      var wrappedPlayer1 = player1.Bot as IRockPaperScissorsBot;
+      var wrappedPlayer2 = player2.Bot as IRockPaperScissorsBot;
       if (wrappedPlayer1 == null && wrappedPlayer2 == null) return GameResult.Tie(player1, player2);
       if (wrappedPlayer1 == null) return GameResult.WinnerAndLoser(player2, player1);
       if (wrappedPlayer2 == null) return GameResult.WinnerAndLoser(player1, player2);
 
-      Player rpsPlayer1 = new Player(wrappedPlayer1);
-      Player rpsPlayer2 = new Player(wrappedPlayer2);
+      var rpsPlayer1 = new Player(player1.TeamName, wrappedPlayer1);
+      var rpsPlayer2 = new Player(player2.TeamName, wrappedPlayer2);
 
-      Game game = new Game(GameRules.Default);
-      GameResults gameResults = game.Play(rpsPlayer1, rpsPlayer2);
+      var game = new Game(GameRules.Default);
+      var gameResults = game.Play(rpsPlayer1, rpsPlayer2);
       return gameResults.ToGameResult((x) => {
         if (x == rpsPlayer1) return player1;
         if (x == rpsPlayer2) return player2;

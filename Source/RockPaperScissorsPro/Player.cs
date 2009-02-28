@@ -6,6 +6,7 @@ namespace RockPaperScissorsPro
 {
   public interface IPlayer
   {
+    string TeamName { get; }
     int DynamiteRemaining { get; }
     bool HasDynamite { get; }
     int Points { get; }
@@ -16,6 +17,7 @@ namespace RockPaperScissorsPro
 
   public class Player : IPlayer
   {
+    readonly string _teamName;
     readonly IRockPaperScissorsBot _bot;
 
     public IRockPaperScissorsBot Bot
@@ -23,8 +25,9 @@ namespace RockPaperScissorsPro
       get { return _bot; }
     }
 
-    public Player(IRockPaperScissorsBot bot)
+    public Player(string teamName, IRockPaperScissorsBot bot)
     {
+      _teamName = teamName;
       _bot = bot;
     }
 
@@ -36,6 +39,11 @@ namespace RockPaperScissorsPro
     public int NumberOfDecisions
     {
       get; private set;
+    }
+
+    public string TeamName
+    {
+      get { return _teamName; }
     }
 
     public int DynamiteRemaining

@@ -56,7 +56,7 @@ namespace RockPaperScissorsPro.Specs
     readonly Move _move;
 
     public PlayerThatAlwaysThrows(Move move)
-      : base(new DumbBot(move))
+      : base("dumb", new DumbBot(move))
     {
       _move = move;
     }
