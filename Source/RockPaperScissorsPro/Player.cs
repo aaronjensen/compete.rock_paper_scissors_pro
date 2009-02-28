@@ -62,7 +62,16 @@ namespace RockPaperScissorsPro
       var us = new ImmutablePlayer(this);
       var them = new ImmutablePlayer(opponent);
 
-      Move move = clock.Run(() => _bot.MakeMove(us, them, rules, log));
+      Move move = null;
+
+      try
+      {
+        move = clock.Run(() => _bot.MakeMove(us, them, rules, log));
+      }
+      catch (Exception err)
+      {
+        move = new ExceptionMove(err);
+      }
 
       TotalTimeDeciding += clock.TimeToDecide;
       NumberOfDecisions++;
