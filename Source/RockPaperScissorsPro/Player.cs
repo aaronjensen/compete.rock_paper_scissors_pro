@@ -68,8 +68,10 @@ namespace RockPaperScissorsPro
 
     public virtual PlayerMove GetMoveToMake(IPlayer opponent, GameRules rules)
     {
-      DecisionClock<Move> clock = new DecisionClock<Move>(new TimeoutMove());
-      Move move = clock.Run(() => _bot.MakeMove(this, opponent, rules));
+      var clock = new DecisionClock<Move>(new TimeoutMove());
+
+      Move move = clock.Run(() => _bot.MakeMove(new ImmutablePlayer(this), new ImmutablePlayer(opponent), rules));
+
       TotalTimeDeciding += clock.TimeToDecide;
       NumberOfDecisions++;
       return new PlayerMove(this, move);
@@ -95,6 +97,28 @@ namespace RockPaperScissorsPro
     {
       LastMove = move.Move;
     }
+  }
+
+  public class ImmutablePlayer : IPlayer
+  {
+    public ImmutablePlayer(IPlayer player)
+    {
+      TeamName = player.TeamName;
+      DynamiteRemaining = player.DynamiteRemaining;
+      HasDynamite = player.HasDynamite;
+      Points = player.Points;
+      NumberOfDecisions = player.NumberOfDecisions;
+      TotalTimeDeciding = player.TotalTimeDeciding;
+      LastMove = player.LastMove;
+    }
+
+    public string TeamName { get; private set; }
+    public int DynamiteRemaining { get; private set; }
+    public bool HasDynamite { get; private set; }
+    public int Points { get; private set; }
+    public int NumberOfDecisions { get; private set; } 
+    public TimeSpan TotalTimeDeciding { get; private set; } 
+    public Move LastMove { get; private set; } 
   }
 
   public class DecisionClock<O>
