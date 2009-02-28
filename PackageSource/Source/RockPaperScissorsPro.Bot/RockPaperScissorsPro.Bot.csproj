@@ -35,9 +35,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\Compete.Bot.dll</HintPath>
     </Reference>
-    <Reference Include="RockPaperScissorsPro, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="RockPaperScissorsPro.Round1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\RockPaperScissorsPro.dll</HintPath>
+      <HintPath>..\..\Libraries\RockPaperScissorsPro.Round1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
