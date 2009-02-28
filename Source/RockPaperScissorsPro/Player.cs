@@ -66,14 +66,14 @@ namespace RockPaperScissorsPro
       get; private set;
     }
 
-    public virtual PlayerMove GetMoveToMake(IPlayer opponent, GameRules rules)
+    public virtual PlayerMove GetMoveToMake(IPlayer opponent, GameRules rules, IGameLog log)
     {
       var clock = new DecisionClock<Move>(new TimeoutMove());
 
       var us = new ImmutablePlayer(this);
       var them = new ImmutablePlayer(opponent);
 
-      Move move = clock.Run(() => _bot.MakeMove(us, them, rules));
+      Move move = clock.Run(() => _bot.MakeMove(us, them, rules, log));
 
       TotalTimeDeciding += clock.TimeToDecide;
       NumberOfDecisions++;

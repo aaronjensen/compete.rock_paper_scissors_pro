@@ -126,7 +126,7 @@ namespace RockPaperScissorsPro.Specs
       _move = move;
     }
 
-    public Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules)
+    public Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules, IGameLog log)
     {
       return _move;
     }

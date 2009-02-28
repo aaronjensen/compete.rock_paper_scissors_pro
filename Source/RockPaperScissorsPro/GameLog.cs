@@ -3,7 +3,12 @@ using System.Text;
 
 namespace RockPaperScissorsPro
 {
-  public class GameLog
+  public interface IGameLog
+  {
+    void AppendLine(string line);
+  }
+
+  public class GameLog : IGameLog
   {
     readonly Player _player1;
     readonly Player _player2;
@@ -28,6 +33,11 @@ namespace RockPaperScissorsPro
     public string GetLog()
     {
       return builder.ToString();
+    }
+
+    public void AppendLine(string line)
+    {
+      builder.AppendLine(line);
     }
   }
 }

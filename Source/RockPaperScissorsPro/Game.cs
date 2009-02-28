@@ -24,8 +24,8 @@ namespace RockPaperScissorsPro
 
       while (player1.Points < _rules.PointsToWin && player2.Points < _rules.PointsToWin && gameNumber < _rules.MaximumGames)
       {
-        var move1 = player1.GetMoveToMake(player2, _rules);
-        var move2 = player2.GetMoveToMake(player1, _rules);
+        var move1 = player1.GetMoveToMake(player2, _rules, log);
+        var move2 = player2.GetMoveToMake(player1, _rules, log);
 
         var winner = winDeterminer.DetermineWinner(move1, move2);
 

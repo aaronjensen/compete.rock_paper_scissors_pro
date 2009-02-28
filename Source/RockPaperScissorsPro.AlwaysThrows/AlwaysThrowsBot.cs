@@ -16,7 +16,7 @@ namespace RockPaperScissorsPro.AlwaysThrows
   {
     readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
 
-    public Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules)
+    public Move MakeMove(IPlayer you, IPlayer opponent, GameRules rules, IGameLog log)
     {
       if (GetType().Assembly.Location.Contains("TakeForever"))
       {
