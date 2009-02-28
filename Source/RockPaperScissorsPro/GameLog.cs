@@ -12,7 +12,7 @@ namespace RockPaperScissorsPro
     {
       _player1 = player1;
       _player2 = player2;
-      builder.AppendLine(String.Format("BEGIN: {0} {1} - {2}", player1.TeamName, player2.TeamName, DateTime.Now));
+      builder.AppendLine(String.Format("BEGIN: {0,-12} {1,-12}  {2}", player1.TeamName, player2.TeamName, DateTime.Now));
     }
 
     public void AfterMove(Player player1, Player player2)
@@ -22,7 +22,7 @@ namespace RockPaperScissorsPro
 
     public void EndMatch()
     {
-      builder.AppendLine(String.Format("END:   {0} {1} - {2}", _player1.TeamName, _player2.TeamName, DateTime.Now));
+      builder.AppendLine(String.Format("END:   {0,-12} {1,-12}  {2}", _player1.TeamName, _player2.TeamName, DateTime.Now));
     }
 
     public string GetLog()
