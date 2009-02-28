@@ -11,9 +11,9 @@ namespace RockPaperScissorsPro
     {
       var wrappedPlayer1 = player1.Bot as IRockPaperScissorsBot;
       var wrappedPlayer2 = player2.Bot as IRockPaperScissorsBot;
-      if (wrappedPlayer1 == null && wrappedPlayer2 == null) return GameResult.Tie(player1, player2);
-      if (wrappedPlayer1 == null) return GameResult.WinnerAndLoser(player2, player1);
-      if (wrappedPlayer2 == null) return GameResult.WinnerAndLoser(player1, player2);
+      if (wrappedPlayer1 == null && wrappedPlayer2 == null) return GameResult.Tie(player1, player2, "Neither player is an IRockPaperScissorsBot");
+      if (wrappedPlayer1 == null) return GameResult.WinnerAndLoser(player2, player1, player1.TeamName + " is not an IRockPaperScissorsBot");
+      if (wrappedPlayer2 == null) return GameResult.WinnerAndLoser(player1, player2, player1.TeamName + " is not an IRockPaperScissorsBot");
 
       var rpsPlayer1 = new Player(player1.TeamName, wrappedPlayer1);
       var rpsPlayer2 = new Player(player2.TeamName, wrappedPlayer2);
@@ -34,11 +34,11 @@ namespace RockPaperScissorsPro
     {
       if (gameResults.IsTie)
       {
-        return GameResult.Tie(map(gameResults.Player1), map(gameResults.Player1));
+        return GameResult.Tie(map(gameResults.Player1), map(gameResults.Player1), gameResults.Log);
       }
       BotPlayer winner = map(gameResults.Winner);
       BotPlayer loser = map(gameResults.Loser);
-      return GameResult.WinnerAndLoser(winner, loser);
+      return GameResult.WinnerAndLoser(winner, loser, gameResults.Log);
     }
   }
 }

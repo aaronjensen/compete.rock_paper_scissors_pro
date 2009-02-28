@@ -9,5 +9,10 @@ namespace RockPaperScissorsPro
 
       return false;
     }
+
+    public override string ToString()
+    {
+      return "Paper       ";
+    }
   }
 }
