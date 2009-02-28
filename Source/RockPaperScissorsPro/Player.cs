@@ -70,7 +70,10 @@ namespace RockPaperScissorsPro
     {
       var clock = new DecisionClock<Move>(new TimeoutMove());
 
-      Move move = clock.Run(() => _bot.MakeMove(new ImmutablePlayer(this), new ImmutablePlayer(opponent), rules));
+      var us = new ImmutablePlayer(this);
+      var them = new ImmutablePlayer(opponent);
+
+      Move move = clock.Run(() => _bot.MakeMove(us, them, rules));
 
       TotalTimeDeciding += clock.TimeToDecide;
       NumberOfDecisions++;
@@ -121,7 +124,7 @@ namespace RockPaperScissorsPro
     public Move LastMove { get; private set; } 
   }
 
-  public class DecisionClock<O>
+  public class DecisionClock<O> where O : class
   {
     readonly ManualResetEvent _stopWaiting = new ManualResetEvent(false);
     readonly O _timeoutValue;
@@ -136,17 +139,20 @@ namespace RockPaperScissorsPro
     public DecisionClock(O timeoutValue)
     {
       _timeoutValue = timeoutValue;
-      _value = timeoutValue;
+      _value = null;
     }
 
     public O Run(Func<O> func)
     {
       Thread thread = new Thread(Run);
+      thread.Priority = ThreadPriority.AboveNormal;
+      _value = null;
       _sw.Start();
       thread.Start(func);
       _stopWaiting.WaitOne(TimeSpan.FromMilliseconds(5));
       _sw.Stop();
-      if (thread.IsAlive)
+
+      if (_value == null)
       {
         thread.Abort();
         return _timeoutValue;
