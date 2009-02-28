@@ -24,9 +24,9 @@ namespace RockPaperScissorsPro.AlwaysThrows
       }
       if (_random.NextDouble() > 0.5)
       {
-        return Move.Paper;
+        return Round1Move.Paper;
       }
-      return Move.Rock;
+      return Round1Move.Rock;
     }
   }
 }

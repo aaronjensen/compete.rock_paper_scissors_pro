@@ -46,27 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamiteMove.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameLog.cs" />
-    <Compile Include="GameRules.cs" />
-    <Compile Include="IRockPaperScissorsBot.cs" />
     <Compile Include="IllegalMove.cs" />
-    <Compile Include="Move.cs" />
-    <Compile Include="PaperMove.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RockMove.cs" />
-    <Compile Include="ScissorsMove.cs" />
     <Compile Include="TimeoutMove.cs" />
-    <Compile Include="WaterBalloonMove.cs" />
     <Compile Include="WinDeterminer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\compete\Source\Compete.Bot\Compete.Bot.csproj">
       <Project>{DFF95378-F0D3-4B1B-AE0D-78388420C235}</Project>
       <Name>Compete.Bot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RockPaperScissorsPro.Round1\RockPaperScissorsPro.Round1.csproj">
+      <Project>{E6447BAE-EF72-49C5-B6AC-DDD857A62E48}</Project>
+      <Name>RockPaperScissorsPro.Round1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RockPaperScissorsPro.Round2\RockPaperScissorsPro.Round2.csproj">
+      <Project>{89FB4893-2405-4AAA-855E-135F9963D906}</Project>
+      <Name>RockPaperScissorsPro.Round2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RockPaperScissorsPro.Round3\RockPaperScissorsPro.Round3.csproj">
+      <Project>{5127C567-DA68-44B0-86FE-506EF54D776B}</Project>
+      <Name>RockPaperScissorsPro.Round3</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

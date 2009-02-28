@@ -102,16 +102,16 @@ namespace RockPaperScissorsPro.Specs
     {
       var gameRules = new GameRules();
       gameRules.StartingDynamite = 1;
-      player1 = new Player("dumb", new DumbBot(Move.Rock));
-      player2 = new Player("dumb", new DumbBot(Move.Rock));
+      player1 = new Player("dumb", new DumbBot(Round1Move.Rock));
+      player2 = new Player("dumb", new DumbBot(Round1Move.Rock));
 
       player1.Reset(gameRules);
       player2.Reset(gameRules);
 
-      rock = Move.Rock;
-      paper = Move.Paper;
-      scissors = Move.Scissors;
-      dynamite = ProMove.Dynamite;
+      rock = Round1Move.Rock;
+      paper = Round1Move.Paper;
+      scissors = Round1Move.Scissors;
+      dynamite = Round2Move.Dynamite;
       water = new WaterBalloonMove();
       winDeterminer = new WinDeterminer();
     };

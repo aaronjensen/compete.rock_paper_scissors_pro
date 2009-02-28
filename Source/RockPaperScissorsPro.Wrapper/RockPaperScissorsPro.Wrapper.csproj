@@ -57,6 +57,18 @@
       <Project>{7614EA4E-29EB-4F13-A50D-2794244FE934}</Project>
       <Name>Compete.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RockPaperScissorsPro.Round1\RockPaperScissorsPro.Round1.csproj">
+      <Project>{E6447BAE-EF72-49C5-B6AC-DDD857A62E48}</Project>
+      <Name>RockPaperScissorsPro.Round1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RockPaperScissorsPro.Round2\RockPaperScissorsPro.Round2.csproj">
+      <Project>{89FB4893-2405-4AAA-855E-135F9963D906}</Project>
+      <Name>RockPaperScissorsPro.Round2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RockPaperScissorsPro.Round3\RockPaperScissorsPro.Round3.csproj">
+      <Project>{5127C567-DA68-44B0-86FE-506EF54D776B}</Project>
+      <Name>RockPaperScissorsPro.Round3</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RockPaperScissorsPro\RockPaperScissorsPro.csproj">
       <Project>{146770EE-181F-4C9F-951A-FB7F608B0505}</Project>
       <Name>RockPaperScissorsPro</Name>

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7D605349-4906-44A8-9ED9-17FDDD6974FE}</ProjectGuid>
+    <ProjectGuid>{5127C567-DA68-44B0-86FE-506EF54D776B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RockPaperScissorsPro.AlwaysThrows</RootNamespace>
-    <AssemblyName>RockPaperScissorsPro.AlwaysThrows</AssemblyName>
+    <RootNamespace>RockPaperScissorsPro.Round3</RootNamespace>
+    <AssemblyName>RockPaperScissorsPro.Round3</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,21 +35,28 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlwaysThrowsBot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Round3Move.cs" />
+    <Compile Include="WaterBalloonMove.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\compete\Source\Compete.Bot\Compete.Bot.csproj">
-      <Project>{DFF95378-F0D3-4B1B-AE0D-78388420C235}</Project>
-      <Name>Compete.Bot</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RockPaperScissorsPro.Round1\RockPaperScissorsPro.Round1.csproj">
       <Project>{E6447BAE-EF72-49C5-B6AC-DDD857A62E48}</Project>
       <Name>RockPaperScissorsPro.Round1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RockPaperScissorsPro.Round2\RockPaperScissorsPro.Round2.csproj">
+      <Project>{89FB4893-2405-4AAA-855E-135F9963D906}</Project>
+      <Name>RockPaperScissorsPro.Round2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
